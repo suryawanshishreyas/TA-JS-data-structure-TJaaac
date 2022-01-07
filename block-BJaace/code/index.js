@@ -23,9 +23,9 @@ colors[colors.length]= "Grey";
 // 12. Add another color to the beginning of the list (use array method array.unshift('gray'))
 colors.unshift("yellow");
 // 13. Remove the first color from the starting of the array
-colors.pop(0);
+delete colors[0];
 // 14. Remove the last color from the end of list, and then print the length of the array to the console one more time.
-colors.pop(colors.length - 1);
+delete colors[colors.length - 1];
 console.log(colors.length);
 // 15. Remove the second color from the end of list.
 colors.pop(1);
