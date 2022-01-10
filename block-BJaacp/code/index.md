@@ -11,20 +11,21 @@ let arr2 = arr;
 
 Answer the following with reason after going through the above code:
 
-- `[10] === [10]`
-- What is the value of obj? // answer
-- `obj == newObj`
-- `obj === newObj`
-- `user === newObj`
-- `user == newObj`
-- `user == obj`
-- `arr == arr2`
-- `arr === arr2`
+- `[10] === [10]` // false as they are store address not value[arrays]
+- What is the value of obj? // obj={surname: 'Stark'}
+- `obj == newObj` // false as newly updated value is different 
+- `obj === newObj`// they are objects so they are not equal
+- `user === newObj` // false
+- `user == newObj` // false
+- `user == obj` // true
+- `arr == arr2` // true
+- `arr === arr2` / true aas they refer and hold the same address.
 
 2. What's will be the value of `person1` and `person2` ? Explain with reason. Draw the memory representation diagram.
 
 <!-- To add this image here use ![name](./hello.jpg) -->
-
+![MemoryRepresentation](./Asgn3_MR.jpg)
+![MemoryRepresentation](Asgn3_MR.jpg)
 ```js
 function personDetails(person) {
   person.age = 25;
@@ -33,8 +34,8 @@ function personDetails(person) {
 }
 var person1 = { name: 'Alex', age: 30 };
 var person2 = personDetails(person1);
-console.log(person1);
-console.log(person2);
+console.log(person1); // {name: 'Alex', age: 25}
+console.log(person2); // { name:'Alex', age:30}
 ```
 
 3. What will be the output of the below code:
@@ -46,6 +47,6 @@ var user = {
 };
 user.brothers = brothers;
 brothers.push('Robb');
-console.log(user.brothers === brothers); //1. output
-console.log(user.brothers.length === brothers.length); //2. output
+console.log(user.brothers === brothers); //1. true
+console.log(user.brothers.length === brothers.length); //2. true
 ```
