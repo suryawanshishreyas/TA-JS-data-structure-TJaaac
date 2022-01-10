@@ -58,7 +58,7 @@ console.log(oddCollection);
     times(5); // ['test', 'test', 'test', 'test', 'test']
 */
 
-function times(number, string) {
+function times(number, string="test") {
   var mul=[];
   for(i=0; i<number; i++){
     
@@ -90,9 +90,12 @@ console.log(times(5)); // ['test', 'test', 'test', 'test', 'test']
     revert(['Ryan', 'John', 'Bran']); //['Bran', 'John', 'Ryan']
 */
 
-function revert(inp) {
-  let reversedValue = inp.reverse();
-  return reversedValue;
+function revert(arr) {
+  let final = [];
+  for(let i=arr.length -1; i>=0 ; i--){
+    final.push(arr[i]);
+  }
+  return final;
 }
 msgs=revert([1,2,3,4]);
 console.log(msgs);
@@ -114,16 +117,23 @@ console.log(revert(['Ryan', 'John', 'Bran'])); //['Bran', 'John', 'Ryan']
     clear(['a', undefined, 'd', 0,  'c', 'b']); // ['b', 'c', 'd', 'a']
     clear(['Ryan', null, 0,  'John', 'Bran']); //['Bran', 'John', 'Ryan']
 */
-
-function clear(inp) {
-  let reversedValue = inp.reverse();
-  if(reversedValue[i] !==/^[0-9]+$/){
-    reversedValue.pop(inp);
-    return reversedValue;
-  }
+function isUnwanted(value){
+  return value == false ||
+  value == null ||
+  value == "" ||
+  value == undefined ||
+  value == 0
 }
-  msgs=clear([1, 2, 3, 4, '', 0, null, undefined]);
-  console.log(msgs);
+
+function clear(arr) {
+  let final=[];
+  for(let value of arr){
+    if(!isUnwanted(value)) {
+      final.push(value);
+    }  
+  }
+  return final;
+}
 // Uncomment the code below and test the output
 console.log(clear([1, 2, 3, 4, '', 0, null, undefined])); // [4, 3, 2, 1]
 console.log(clear(['a', undefined, 'd', 0, 'c', 'b'])); // ['b', 'c', 'd', 'a']
@@ -144,12 +154,11 @@ console.log(clear(['Ryan', null, 0, 'John', 'Bran'])); //['Bran', 'John', 'Ryan'
 */
 
 function arrayToObj(array) {
-array=[];
 let obj={};
-  for(i=0; i<= array.length; i++){
-    obj.i =array[i];
-    return obj;
+  for(i=0; i< array.length; i++){
+    obj[i] =array[i];
   }
+  return obj;
 }
 let ato= arrayToObj([1,2,3,4,5]);
 console.log(ato);
